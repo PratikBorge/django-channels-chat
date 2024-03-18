@@ -9,6 +9,9 @@ RUN  apt install python3-pip -y
 RUN  git clone https://github.com/PratikBorge/django-channels-chat.git
 WORKDIR /opt/django-channels-chat/
 RUN pip install pipenv
+RUN  pipenv update
+RUN  pipenv clean
+RUN  pipenv install
 RUN pipenv --python 3 shell
 RUN  pipenv install
 RUN mysql -u root -proot -e "CREATE DATABASE chat CHARACTER SET utf8;"
